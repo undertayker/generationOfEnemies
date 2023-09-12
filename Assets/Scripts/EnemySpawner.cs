@@ -21,7 +21,9 @@ public class EnemySpawner : MonoBehaviour
         {
             _randomSpawn = Random.Range(0, _spawnPoint.Length);
 
-            Enemy enemy = Instantiate(_enemyPrefab, _spawnPoint[_randomSpawn].transform.position, Quaternion.identity);
+            Enemy enemy = Instantiate(_enemyPrefab, 
+                _spawnPoint[_randomSpawn].transform.position,
+                Quaternion.identity);
 
             yield return new WaitForSeconds(_timeSpawn);
         }
