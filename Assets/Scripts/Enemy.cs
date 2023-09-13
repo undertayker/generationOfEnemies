@@ -6,6 +6,10 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _speed;
     private Rigidbody2D _rigidbody;
+    private Vector2 _direction;
+
+    public void SetDirection(Vector2 direction) => 
+        _direction = direction;
 
     private void Awake()
     {
@@ -14,6 +18,6 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        _rigidbody.velocity = new Vector2(_speed, _rigidbody.velocity.y);
+        _rigidbody.velocity = (new Vector2(_speed, _rigidbody.velocity.y) + _direction);
     }
 }
